@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: sakiladb/mysql:latest
+    container_name: cmse492-mysql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+  adminer:
+    image: adminer:latest
+    container_name: cmse492-adminer
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
